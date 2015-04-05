@@ -26,7 +26,7 @@ def getGuessHint(guess, secret, as_tuple = False):
             secret_remainder.append(secret[i])
 
     # Second pass of remainders to see if guess has matched colors.
-    for x in secret_remainder:
+    for x in set(secret_remainder):
         if x in guess_remainder:
             num_color += 1
 
