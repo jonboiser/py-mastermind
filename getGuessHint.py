@@ -8,29 +8,30 @@
 # getGuessHint([1,2,3], [3,1,2]) #=> {'color': 3, 'position': 0}
 # getGuessHint([1,2,3], [3,1,2], True) #=> (3, 0)
 def getGuessHint(guess, secret, as_tuple = False):
-	N = len(guess)
-	assert N == len(secret), "Guess must be same length as the code."
-	num_position = 0
-	num_color = 0
+    N = len(guess)
+    assert N == len(secret), "Guess must be same length as the code."
+    num_position = 0
+    num_color = 0
 
-	# Storage for guess/true code elements not matched exactly.
-	guess_remainder = []
-	secret_remainder = []
+    # Storage for guess/true code elements not matched exactly.
+    guess_remainder = []
+    secret_remainder = []
 
-	for i in range(N):
-		if guess[i] == secret[i]:
-			num_position += 1
-		else:
-			guess_remainder.append(guess[i])
-			secret_remainder.append(secret[i])
+    # First pass to look for exact matches.
+    for i in range(N):
+        if guess[i] == secret[i]:
+            num_position += 1
+        else:
+            guess_remainder.append(guess[i])
+            secret_remainder.append(secret[i])
 
-	# Inpsect the remainders to see if guess has matched colors.
-	for x in secret_remainder:
-		if x in guess_remainder:
-			num_color += 1
+    # Second pass of remainders to see if guess has matched colors.
+    for x in secret_remainder:
+        if x in guess_remainder:
+            num_color += 1
 
-	# Option to return as tuple for cases when hints need to be sortable.
-	if as_tuple:
-		return (num_color, num_position)
-	else:
-		return {'color' : num_color, 'position': num_position }
+    # Option to return as tuple for cases when hints need to be sortable.
+    if as_tuple:
+        return (num_color, num_position)
+    else:
+        return {'color' : num_color, 'position': num_position }

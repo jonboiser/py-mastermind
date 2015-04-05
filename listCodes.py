@@ -11,4 +11,4 @@
 from itertools import product
 
 def listCodes(symbols, length, pred = lambda x: True):
-	return list(filter(pred, product(symbols, repeat = length)))
+    return list(filter(pred, product(symbols, repeat = length)))
