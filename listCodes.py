@@ -10,5 +10,10 @@
 # listCodes(range(3), 4, lambda x: x[0] == 1) #=> [(1,0,0,0), ..., (1,2,2,2)]
 from itertools import product
 
-def listCodes(symbols, length, pred = lambda x: True):
-    return list(filter(pred, product(symbols, repeat = length)))
+def listCodes(symbols, length):
+    if length == 0:
+        return [] # consistent behavior when symbol or length = 0
+    elif length == 1:
+        return [x for x in symbols] # consistent behavior for non-tuples
+    else:
+        return [x for x in product(symbols, repeat = length)]
