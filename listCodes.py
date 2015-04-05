@@ -6,10 +6,9 @@
 # An optional predicate can be passed into the function to filter it.
 
 # Example:
-# allCodes(range(3), 4) #=> [(0,0,0,0), (0,0,0,1), (0,0,0,2), ..., (2,2,2,2)]
-# allCodes(range(3), 4, lambda x: x[0] == 1) #=> [(1,0,0,0), ..., (1,2,2,2)]
+# listCodes(range(3), 4) #=> [(0,0,0,0), (0,0,0,1), (0,0,0,2), ..., (2,2,2,2)]
+# listCodes(range(3), 4, lambda x: x[0] == 1) #=> [(1,0,0,0), ..., (1,2,2,2)]
 from itertools import product
 
-def allCodes(symbols, length, pred = lambda x: True):
-	out = filter(pred, product(symbols, repeat = length))
-	return(list(out))
+def listCodes(symbols, length, pred = lambda x: True):
+	return list(filter(pred, product(symbols, repeat = length)))
