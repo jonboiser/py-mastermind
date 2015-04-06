@@ -13,14 +13,14 @@ class TestListCodes(unittest.TestCase):
         self.assertEqual(LC({}, 5), [])
         self.assertEqual(LC((), 5), [])
         self.assertEqual(LC([], 5), [])
-        self.assertEqual(LC('abc', 0), [])
+        self.assertEqual(LC('roygp', 0), [])
 
     def test_simple_alphabet(self):
-        self.assertEqual(LC('abc',1), ['a','b','c'])
-        self.assertEqual(LC('ab',2), [('a','a'), ('a','b'), ('b','a'), ('b','b')])
+        self.assertEqual(LC('roy',1), ['r','o','y'])
+        self.assertEqual(LC('ab',2), ['aa', 'ab', 'ba', 'bb'])
 
     def test_large_outputs(self):
-        self.assertEqual(len(LC(range(4), 10)), 4**10)
+        self.assertEqual(len(LC('abcde', 5)), 5**5)
 
 if __name__ == '__main__':
     unittest.main()
