@@ -13,8 +13,8 @@ class Hinter:
         self.secret = secret
 
     def getHint(self, guess, as_tuple = False):
-        N = guess.__len__()
-        assert N == self.secret.__len__(), "Guess must be same length as the code."
+        N = len(guess)
+        assert N == len(self.secret), "Guess must be same length as the code."
         num_position = 0
         num_color = 0
     

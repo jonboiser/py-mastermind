@@ -53,7 +53,7 @@ class Game():
 
     def __validateSecret(self, secret):
         valid = False
-        right_length = secret.__len__() == self.secretlength
+        right_length = len(secret) == self.secretlength
         right_symbols = reduce(lambda acc, sec: acc & (sec in self.symbols), secret, True)
         
         if not right_length:

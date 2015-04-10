@@ -1,6 +1,6 @@
 from colorama import Fore, Back
 def colorPrint(string, color):
-    assert color.__len__() == 1, "Color code is a single character."
+    assert len(color) == 1, "Color code is a single character."
     assert color in 'roygbp', "Color code must be one of r, o, y, g, b, p."
 
     colorDict = {
@@ -19,4 +19,3 @@ def coloredCode(code):
     for c in code:
         out += colorPrint(c, c)
     return out
-
